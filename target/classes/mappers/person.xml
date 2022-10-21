@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="person">
+
+	<!-- 여기에 써있는것은 모두 존재해야한다 ******** 
+	<insert id="aaaa" parameterType="a.b.DTO"></insert>
+	<select id="select" resultType="Person"></select>
+	-->
+									<!-- rootContext.xml에 별칭이 저장되어있으므로 
+									package 이름을 모두 쓰지 않아도 된다.-->
+	<insert id="insert" parameterType="Person">
+		insert into person(name, age, job) values(#{name}, #{age}, #{job})
+	</insert>
+	
+	<!-- 
+	<update id="update" parameterType="Person">
+		update person set name="#{name}", age=#{age}, job=#{job} where no=#{no}
+	</update>
+	-->
+	
+	<select id="selectAll" resultType="Person">
+		select no,name,age,job from person
+	</select>
+	
+</mapper>
